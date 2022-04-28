@@ -45,11 +45,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new DefinePlugin({
-      'process.env.NODE_DEBUG': '""'
-    })
-  ],
   resolve: {
     fallback: {
       assert: require.resolve('assert'),
