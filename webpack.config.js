@@ -58,7 +58,6 @@ module.exports = {
       url: require.resolve('url'),
       util: require.resolve('util'),
       zlib: require.resolve('browserify-zlib')
-    },
-    mainFields: ['browser', 'main']
+    }
   }
 };
