@@ -6,7 +6,7 @@ module.exports = {
   entry: './lib/index.js',
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    filename: 'main.webpack.js',
     library: {
       type: 'umd',
       name: 'window'
@@ -18,14 +18,16 @@ module.exports = {
         test: /\.m?js$/,
         include: [
           resolve(__dirname, 'lib'),
+          resolve(__dirname, 'node_modules/@microsoft/omnichannel-chat-components'),
           resolve(__dirname, 'node_modules/@microsoft/omnichannel-chat-widget'),
         ],
-        // exclude: /(node_modules|bower_components)/,
+        resolve: {
+          fullySpecified: false
+        },
         use: {
           loader: 'babel-loader',
           options: {
             presets: [
-              '@babel/preset-react',
               [
                 '@babel/preset-env',
                 {
@@ -49,7 +51,6 @@ module.exports = {
     })
   ],
   resolve: {
-    // exportsFields: ['xxx'],
     fallback: {
       assert: require.resolve('assert'),
       crypto: require.resolve('crypto-browserify'),
@@ -57,11 +58,6 @@ module.exports = {
       https: require.resolve('https-browserify'),
       net: false,
       os: require.resolve('os-browserify'),
-      // process: {
-      //   env: {
-      //     NODE_DEBUG: ''
-      //   }
-      // },
       stream: require.resolve('stream-browserify'),
       timers: require.resolve('timers-browserify'),
       tls: false,

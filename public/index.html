@@ -3,10 +3,11 @@
   <head>
     <title></title>
     <script>
+      // These are required for ESBuild only.
       window.global = {};
       window.process = { env: {}, version: '99.99.99' };
     </script>
-    <script src="../dist/main.esbuild.js"></script>
+    <script src="../dist/main.webpack.js"></script>
   </head>
   <body></body>
 </html>

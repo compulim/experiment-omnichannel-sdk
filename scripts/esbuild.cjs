@@ -16,15 +16,13 @@ require('esbuild').build({
   entryPoints: [resolve(__dirname, '../src/index.js')],
   loader: {
     '.js': 'jsx',
-    '.mp3': 'file',
-    '.png': 'file',
-    '.svg': 'file'
+    '.mp3': 'binary',
+    '.png': 'binary',
+    '.svg': 'binary'
   },
   minify: true,
   outfile: resolve(__dirname, '../dist/main.esbuild.js'),
   plugins: [MyPlugin, require("esbuild-plugin-node-polyfills")],
   sourcemap: true,
   target: ['chrome90']
-}).then(() => {
-  console.log('DONE');
 });
