@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:babel && npm run build:webpack",
+    "build": "npm run build:babel && npm run build:esbuild && npm run build:webpack",
     "build:babel": "babel ./src/index.js --out-dir ./lib",
+    "build:esbuild": "node ./scripts/esbuild.cjs",
     "build:webpack": "webpack"
   },
   "author": "William Wong (https://github.com/compulim)",
@@ -20,9 +21,12 @@
     "babel-loader": "^8.2.5",
     "browserify-zlib": "^0.2.0",
     "crypto-browserify": "^3.12.0",
+    "esbuild": "^0.14.38",
+    "esbuild-plugin-node-polyfills": "^1.0.2",
     "file-loader": "^6.2.0",
     "https-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "stream-browserify": "^3.0.0",

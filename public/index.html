@@ -2,8 +2,11 @@
 <html lang="en">
   <head>
     <title></title>
-    <script src="../dist/main.js"></script>
+    <script>
+      window.global = {};
+      window.process = { env: {}, version: '99.99.99' };
+    </script>
+    <script src="../dist/main.esbuild.js"></script>
   </head>
-  <body>
-  </body>
+  <body></body>
 </html>
